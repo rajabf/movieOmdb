@@ -24,10 +24,10 @@ fetch(`https://www.omdbapi.com/?apikey=efc24d52&s=naruto`)
 function modalRender(obj){
     leftSide.innerHTML = 
     `
-    <div class="card mb-3 p-3 text-bg-ligh" style="max-width: 540px;">
-        <div class="row g-0">
+    <div class="card mb-3 p-3 text-bg-secondary-emphasis" style="max-width: 400px;">
+        <div class="container">
             <div class="col-md-4">
-                <img class="img-fluid rounded-star" src="${obj.poster}"  alt="poster">
+                <img class="img rounded float-start" src="${obj.poster}" style="width: 18rem"  alt="poster">
             </div>
             <div class="col-md-8">
                 <div class="card-body">
@@ -101,7 +101,7 @@ function renderResults(result){
     elList.innerHTML += 
     `
     <li class="result-item" style="width: 18rem; list-style: none;">
-        <div class="card" style="width: 18rem">
+        <div class="card text-bg-danger-emphasis" style="width: 18rem">
             <img src="${result.poster}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">${result.title}</h5>
