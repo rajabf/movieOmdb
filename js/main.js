@@ -1,7 +1,7 @@
 let elList = document.querySelector('.list')
-let elInput = document.querySelector('.input')
-let elSubmit = document.querySelector('.submit')
-let elForm = document.querySelector('.input-form')
+let elInput = document.querySelector('.movieSearchInput')
+let elSubmit = document.querySelector('.movieSearchSubmit')
+let movieSearchForm = document.querySelector('.movie-search')
 let togleDiv = document.getElementById('exampleModal')
 let leftSide = document.querySelector('.more-left')
 
@@ -52,8 +52,7 @@ function modalRender(obj){
                     <p class="card-text"><b>imdbID:</b> ${obj.imdbID}</p>
                     <p class="card-text"><b>type:</b> ${obj.type}</p>
                     <p class="card-text"><b>totalSeasons:</b> ${obj.totalSeasons}</p>
-                    <p class="card-text"><b>response:</b> ${obj.response}</p>
-                    <button class="btn btn-primary" onclick="fetchMore('${obj.title}')">learn more</button>
+                    <button class="btn btn-primary" onClick="window.location.reload();">close</button>
                 </div>
             </div>
         </div>
@@ -107,14 +106,14 @@ function renderResults(result){
                 <h5 class="card-title">${result.title}</h5>
                 <p class="card-text">${result.year}</p>
                 <p class="card-text">${result.type}</p>
-                <a href="#" class="btn btn-primary" onclick="fetchMore('${result.title}')">learn more</a>
+                <button class="btn btn-primary" onclick="fetchMore('${result.title}')">learn more</button>
             </div>
         </div>
     </li>
     `
 }
 
-elForm.addEventListener('submit', evt => {
+movieSearchForm.addEventListener('submit', evt => {
     leftSide.innerHTML = ''
     elList.innerHTML = ''
     evt.preventDefault();
@@ -133,6 +132,4 @@ elForm.addEventListener('submit', evt => {
         })
     })
     .catch(err => console.error(err))
-    
-    console.log(elList);
 })
